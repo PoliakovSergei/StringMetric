@@ -7,8 +7,24 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class StringMetricTest {
-    @Test public void testAppHasAGreeting() {
-        AppLauncher classUnderTest = new AppLauncher();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    @Test public void testLevensteinAlgorithm() {
+        //TODO case sensitive tests
+        assertEquals(9,StringMetricAlgorithm.levensteinDistance("pineapple","strawbery"));
+        assertEquals(2,StringMetricAlgorithm.levensteinDistance("berry","cherry"));
+
+        assertEquals(3,StringMetricAlgorithm.levensteinDistance("jivil","java"));
+        assertEquals(6,StringMetricAlgorithm.levensteinDistance("coffeescript","javascript"));
+    }
+
+    @Test public void testDamerauLevensteinAlgorithm() {
+        //TODO case sensitive tests
+        assertEquals(9,StringMetricAlgorithm.damerauLevensteinDistance("pineapple","strawbery"));
+        assertEquals(2,StringMetricAlgorithm.damerauLevensteinDistance("berry","cherry"));
+
+        assertEquals(3,StringMetricAlgorithm.damerauLevensteinDistance("jivil","java"));
+        assertEquals(1,StringMetricAlgorithm.damerauLevensteinDistance("ajva","java"));
+        assertEquals(6,StringMetricAlgorithm.damerauLevensteinDistance("coffeescript","javascript"));
+        assertEquals(2,StringMetricAlgorithm.damerauLevensteinDistance("javacsritp","javascript"));
+
     }
 }
